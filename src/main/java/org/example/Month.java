@@ -1,3 +1,5 @@
+// Student name: Koichi Nakata (ID: kanakta595)
+
 package org.example;
 
 public class Month {
@@ -6,15 +8,14 @@ public class Month {
     static public final int START_DAY_JAN_1_2021 = 5; // January 1, 2021 was Friday
     private int month;
     private int year;
+    private Birthday myBirthday;
 
-    public Month() {
-        setMonth(1);
-        setYear(2021);
-    }
+    public Month() { this(2021, 1); }
 
     public Month(int month, int year) {
         setMonth(month);
         setYear(year);
+        setMyBirthday(null);
     }
 
     public int getMonth() { return month; }
@@ -35,9 +36,13 @@ public class Month {
         }
     }
 
+    public Birthday getMyBirthday() { return myBirthday; }
+    public void setMyBirthday(Birthday myBirthday) { this.myBirthday = myBirthday; }
+
     public void display() {
         displayHeader();
         displayBody();
+        if (myBirthday != null) myBirthday.display();
     }
 
     private void displayHeader() {
